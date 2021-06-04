@@ -1,0 +1,334 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color:rgb(219, 200, 175);
+}
+/* untuk menampilkan quiz box */
+.custom-box { 
+    max-width: 800px;
+    background-color: white;
+    margin: 30px auto;
+    padding: 50px 40px;
+    border-radius: 10px;
+}
+
+/* untuk menampilkan style tulisan diawal kuis */
+.quiz-home-box {
+    text-align: center;
+    font-family: 'Pangolin', cursive;
+    display: none;
+}
+
+/* untuk menampilkan style tulisan diawal kuis bercetak tebak*/
+.quiz-home-box.show {
+    display: block;
+}
+
+/* untuk menampilkan style tulisan diawal kuis */
+.quiz-home-box h4 {
+    font-size: 30px;
+    color: black;
+    
+}
+
+/* untuk menampilkan style pada kotak */
+.btn {
+    background-color: lightpink;
+    border: 2px solid white;
+    padding:14px 40px;
+    color:black;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Pangolin', cursive;
+    white-space: nowrap;
+    margin: 0 10px;
+}
+
+/* untuk menampilkan style inputan nama */
+.submit-name-btn {
+    padding:10px 15px;
+    font-size: 15px;
+}
+
+/* untuk menampilkan style tulisan ketika mengklik options */
+.btn:focus {
+    outline: none;
+    color: white;
+}
+
+/* untuk menampilkan style kotak kuis */
+.quiz-box {
+    background-color: white;
+    display: none;
+}
+
+/* untuk menampilkan style kotak kuis */
+.quiz-box.show {
+    display: block;
+}
+
+/* untuk menampilkan style score */
+.quiz-box .stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: darkblue;
+}
+
+/* untuk menampilkan style score dan waktu */
+.quiz-box .stats .quiz-time {
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    text-align: left;
+}
+
+/* untuk menampilkan style score dan berakhirnya waktu */
+.quiz-box .stats .time-up-text {
+    /* display: inline-block; */
+    font-weight: 500;
+    display: none;
+}
+
+/* untuk menampilkan style jika waktu kurang dari 6 detik maka akan berwarna merah */
+.quiz-box .stats .time-up-text.show {
+     display: inline-block;
+     color: red;
+}
+
+/* untuk menampilkan style jika waktu lebih dari 6 kurang dari 15 detik maka akan berwarna hijau */
+.quiz-box .stats .quiz-time .remaining-time {
+    height: 60px;
+    width: 60px;
+    color: green;
+    border: 2px solid green;
+    font-weight: 800;
+    line-height: 56px;
+    text-align: center;
+    border-radius: 50%;
+    font-family: 'Pangolin', cursive;
+}
+
+/* untuk menampilkan style jika waktu telah berakhir maka akan berwarna merah */
+.quiz-box .stats .quiz-time .remaining-time.less-time {
+    color:red;
+    border: 4px solid red;
+    font-family: 'Pangolin', cursive;
+}
+
+/* untuk menampilkan style score */
+.quiz-box .stats .score-board {
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    text-align: right;
+    font-family: 'Pangolin', cursive;
+}
+
+/* untuk menampilkan style score jawaban benar*/
+.quiz-box .stats .score-board .correct-answers {
+    font-weight: 800;
+}
+
+/* untuk menampilkan style kotak soal */
+.quiz-box .question-box{
+    background-color: rgb(240, 213, 245);
+    padding: 40px 30px;
+    margin-top: 40px;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-align: center;
+    position: relative;
+}
+
+/* untuk menampilkan style nomer soal */
+.quiz-box .question-box .current-question-num {
+    height: 70px;
+    width: 70px;
+    background-color: rgb(250, 227, 222);
+    border: 2px solid lightslategray;
+    font-size: 20px;
+    border-color: black;
+    border-radius: 50%;
+    line-height: 68px;
+    font-weight: 800;
+    text-align: center;
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    margin-left: -35px;
+    z-index: 1;
+    font-family: 'Pangolin', cursive;
+}
+
+/* untuk menampilkan style tulisan pada soal kuis */
+.quiz-box .question-box .question-text {
+    font-size: 30px;
+    font-family: 'Pangolin', cursive;
+    color: black;
+}
+
+/* untuk menampilkan style tulisan pada options quiz */
+.quiz-box .option-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* untuk menampilkan style pada kotak options */
+.quiz-box .option-box .option{
+    background-color: pink;
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
+    margin-top: 30px;
+    padding: 14px 15px;
+    text-align: center;
+    font-size: 20px;
+    /* text-transform: uppercase; */
+    font-weight: 500;
+    color:black;
+    font-family: 'Pangolin', cursive;
+    border-radius: 30px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+/* untuk menampilkan style dengan tidak menampilkan kursor pada jawaban */
+.quiz-box .option-box .option.already-answered {
+    pointer-events: none;
+}
+
+/* untuk menampilkan style kotak dijawab benar */
+.quiz-box .option-box .option.show-correct {
+    background-color: green;
+    border-color: white ;
+}
+/* untuk menampilkan style kota dijawab benar*/
+.quiz-box .option-box .option.correct {
+    background-color: green;
+    border-color: white ;
+    color: white;
+}
+
+/* untuk menampilkan style kotak dijawab salah */
+.quiz-box .option-box .option.wrong {
+    background-color: red;
+    border-color: white;
+    color: white;
+}
+
+/* untuk menampilkan style deskripsi jawaban*/
+.quiz-box .answer-description.show {
+    display: block;
+}
+
+/* untuk menampilkan style hasil nilai */
+.see-result-btn.show,
+.next-question-btn.show {
+    display: inline-block;
+}
+
+/* untuk menampilkan style deskripsi jawaban */
+.quiz-box .answer-description {
+    background-color: rgb(159, 216, 162);
+    border: 2px solid white;
+    margin-top:  20px;
+    padding: 15px;
+    border-radius: 10px;
+    color: black;
+    display: none;
+    font-family: 'Pangolin', cursive;
+    font-size: larger;
+}
+
+/* untuk menampilkan style pada kotak next */
+.quiz-box .next-question {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* untuk menampilkan style hasil nilai dan soal selanjutnya */
+.see-result-btn, .next-question-btn {
+    display:none;
+}
+
+/* untuk menampilkan style hasil quiz */
+.quiz-over-box h1 {
+    font-size: 50px;
+    font-family: 'Pangolin', cursive;
+    color: black;
+    margin: 0 0 20px;
+}
+
+/* untuk menampilkan style total,test,benar,salah dan persentasi */
+.quiz-over-box h4 {
+    font-family: 'Pangolin', cursive;
+    font-size: 25px;
+    font-weight: normal;
+    color: black;
+    margin: 15px 0 25px;
+}
+
+/* untuk menampilkan style hasil quiz */
+.quiz-over-box {
+    display: none;
+    text-align: center;
+    justify-content: center;
+}
+
+/* untuk menampilkan style total,test,benar,salah dan persentasi */
+.quiz-over-box h4 span {
+    font-weight: 800;
+}
+
+/* untuk menampilkan style kotak hasil quiz */
+.quiz-over-box.show {
+    display: block;
+}
+
+/* untuk menampilkan style jika ingin mengulang quiz */
+.start-again-quiz-btn, .go-home-btn {
+    margin-top: 15px;
+}
+
+/* untuk menampilkan style nama yang diinputkan dan hasil score */
+.records h4 ul {
+    font-family: 'Pangolin', cursive;
+    font-size: 25px;
+    font-weight: normal;
+    color: black;
+    margin: 15px 0 25px;
+    list-style-type: none;
+    justify-content: center;
+    text-align: center;
+}
+
+/* untuk menampilkan style nama yang diinputkan dan hasil score */
+.records {
+    margin-top: 50px;
+}
+
+/* untuk menampilkan style agar lebih renponsive */
+@media (max-width: 767px){
+    .quiz-home-box h4 {
+        font-size: 20px;
+    }
+    .quiz-home-box h1 {
+        font-size: 30px;
+        margin: 0;
+    }
+    .quiz-box .question-box .question-text {
+        font-size: 20px;
+    }
+    .custom-box{
+        padding: 30px 20px 50px 20px;
+    }
+    .quiz-box .stats{
+        font-size: 20px;
+    }
+}

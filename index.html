@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Awal</title>
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url(2-8.jpg);
+            background-size: cover;
+        }
+        /*menampilkan style pada kotak welcome*/
+        .sidenav {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color:rgb(219, 200, 175);;
+            overflow-x: hidden;
+        }
+        /*menampilkan style pada tulisan welcome*/
+        .sidenav strong{
+            color: white;
+            padding: 16px;
+            text-decoration: none;
+            display: block;
+            font-size: x-large;
+        }
+        
+        /*menampilkan style tulisan pada kotak level 1,level 2 dan about us*/
+        .sidenav a {
+            color: white;
+            padding: 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        /*menampilkan style pada kotak level 1,level 2 dan about us saat kotak diklik*/
+        .sidenav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /*menampilkan style pada halaman welcome*/
+        .content {
+            margin-left: 15%;
+            margin-top: 20%;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: x-large;
+            color: blanchedalmond;
+        }
+        /*menampilkan style pada kotak welcome */
+        .active{
+            background-color: lightpink;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidenav">
+        <a href="main.html" class="active"><strong>Welcome</strong></a>
+        <a href="index.html">level 1</a>
+        <a href="index_2.html">level 2</a>
+        <a href="about.html">About Us</a>
+    </div>
+      
+    <div class="content">
+        <h1>Welcome to Online Quiz</h1>
+    </div>
+      
+</body>
+</html>
